@@ -17,9 +17,7 @@ import firebase from "firebase";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 
-let customFonts = {
-  "Nunito-Sans": require("../assets/fonts/NunitoSans-ExtraBoldItalic.ttf")
-};
+
 
 export default class LoginScreen extends Component {
 
@@ -30,15 +28,7 @@ export default class LoginScreen extends Component {
     };
   }
 
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
-  }
-
-  componentDidMount() {
-    this._loadFontsAsync();
-  }
-
+  
   isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
       var providerData = firebaseUser.providerData;
